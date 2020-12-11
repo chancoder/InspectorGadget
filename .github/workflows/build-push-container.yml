@@ -20,7 +20,7 @@ jobs:
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
     - name: Build Docker Image
-      run: docker build --no-cache --build-arg app_version=1.0.$GITHUB_RUN_NUMBER --build-arg source_version=$GITHUB_SHA -t jelledruyts/inspectorgadget:latest -f ./WebApp/Linux.Dockerfile ./WebApp
+      run: docker build --no-cache --build-arg app_version=1.0.$GITHUB_RUN_NUMBER --build-arg source_version=$GITHUB_SHA -t channzaw/inspectorgadget:latest -f ./WebApp/Linux.Dockerfile ./WebApp
     - name: Push Docker Image to Registry
       run: docker push channzaw/inspectorgadget:latest
   build-deploy-windows:
@@ -34,6 +34,6 @@ jobs:
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
     - name: Build Docker Image
-      run: docker build --no-cache --build-arg app_version=1.0.${env:GITHUB_RUN_NUMBER} --build-arg source_version=${env:GITHUB_SHA} -t jelledruyts/inspectorgadget:latest-windows -f ./WebApp/Windows.Dockerfile ./WebApp
+      run: docker build --no-cache --build-arg app_version=1.0.${env:GITHUB_RUN_NUMBER} --build-arg source_version=${env:GITHUB_SHA} -t channzaw/inspectorgadget:latest-windows -f ./WebApp/Windows.Dockerfile ./WebApp
     - name: Push Docker Image to Registry
       run: docker push jelledruyts/inspectorgadget:latest-windows
