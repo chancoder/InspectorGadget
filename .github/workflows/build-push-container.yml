@@ -36,4 +36,4 @@ jobs:
     - name: Build Docker Image
       run: docker build --no-cache --build-arg app_version=1.0.${env:GITHUB_RUN_NUMBER} --build-arg source_version=${env:GITHUB_SHA} -t channzaw/inspectorgadget:latest-windows -f ./WebApp/Windows.Dockerfile ./WebApp
     - name: Push Docker Image to Registry
-      run: docker push jelledruyts/inspectorgadget:latest-windows
+      run: docker push channzaw/inspectorgadget:latest-windows
