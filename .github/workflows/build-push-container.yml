@@ -22,7 +22,7 @@ jobs:
     - name: Build Docker Image
       run: docker build --no-cache --build-arg app_version=1.0.$GITHUB_RUN_NUMBER --build-arg source_version=$GITHUB_SHA -t jelledruyts/inspectorgadget:latest -f ./WebApp/Linux.Dockerfile ./WebApp
     - name: Push Docker Image to Registry
-      run: docker push jelledruyts/inspectorgadget:latest
+      run: docker push channzaw/inspectorgadget:latest
   build-deploy-windows:
     runs-on: windows-latest
     steps:
